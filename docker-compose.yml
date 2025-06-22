@@ -2,7 +2,6 @@ version: "2"
 services:
   nacos1:
     image: nacos/nacos-server:latest
-    network_mode: host
     container_name: nacos1
     environment:
 #      - PREFER_HOST_MODE=hostname
