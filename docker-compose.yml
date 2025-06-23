@@ -7,7 +7,6 @@ services:
 #      - PREFER_HOST_MODE=hostname
       - MODE=standalone  # 单机模式  cluser 是集群模式
 #      - NACOS_SERVERS=nacos1:8848,nacos2:8848,nacos3:8848
-      - SPRING_DATASOURCE_PLATFORM=mysql
       - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
       - MYSQL_SERVICE_HOST=mysql
