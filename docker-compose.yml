@@ -8,6 +8,7 @@ services:
       - MODE=standalone  # 单机模式  cluser 是集群模式
 #      - NACOS_SERVERS=nacos1:8848,nacos2:8848,nacos3:8848
       - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=127.0.0.1  # 或者127.0.0.1，具体看你的 MySQL 容器或地址
       - MYSQL_SERVICE_PORT=3306
       - MYSQL_SERVICE_USER=${MYSQL_USER}
       - MYSQL_SERVICE_PASSWORD=${MYSQL_PASSWORD}
