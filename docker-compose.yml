@@ -1,22 +1,19 @@
-version: "2"
+version: "3.8"
+
 services:
   nacos1:
     image: nacos/nacos-server:latest
     container_name: nacos1
     environment:
-#      - PREFER_HOST_MODE=hostname
-      - MODE=standalone  # 单机模式  cluser 是集群模式
-#      - NACOS_SERVERS=nacos1:8848,nacos2:8848,nacos3:8848
+      - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
-      - MYSQL_SERVICE_HOST=127.0.0.1  # 或者127.0.0.1，具体看你的 MySQL 容器或地址
+      - MYSQL_SERVICE_HOST=mysql
       - MYSQL_SERVICE_PORT=3306
-      - MYSQL_SERVICE_USER=${MYSQL_USER}
-      - MYSQL_SERVICE_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_SERVICE_DB_NAME=${MYSQL_DATABASE}
-    volumes:
-      - ./cluster-logs/nacos1:/home/nacos/logs
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=MyNewPassw0rd!
+      - MYSQL_SERVICE_DB_NAME=nacos_config
     ports:
       - "8848:8848"
+    volumes:
+      - ./cluster-logs/nacos1:/home/nacos/logs
     restart: on-failure
-    env_file:
-      - .env
