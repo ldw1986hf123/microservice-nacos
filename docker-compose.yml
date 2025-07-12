@@ -16,3 +16,5 @@ services:
     ports:
       - "8848:8848"
     restart: on-failure
+    volumes:
+      - /data/nacos-logs:/home/nacos/logs    #日志输出到本地磁盘
